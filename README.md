@@ -17,6 +17,11 @@ folder has a sample app and the full documentation for that platform:
 
 Copy the helper files each README lists into your app; they have no dependencies.
 
+## Requirements
+
+Driver 7.1.3 or later, from the App Store or Google Play. Earlier versions start and stop recordings,
+but don't support `dual_camera` or the Android status check, and on iOS don't return to the sample.
+
 ## License
 
 [MIT](LICENSE)

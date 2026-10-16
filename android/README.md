@@ -13,7 +13,8 @@ in each README differs.
 
 ## Running the sample
 
-Open this folder in Android Studio and run the `app` configuration on a device with Driver installed.
+Open this folder in Android Studio and run the `app` configuration on a device with Driver 7.1.3 or
+later installed.
 `gradle/wrapper/gradle-wrapper.properties` pins the Gradle version; run `gradle wrapper` once if you want
 `./gradlew` on the command line.
 
@@ -64,7 +65,8 @@ val launched = context.triggerRecording(RecordingDeepLink.Action.Start, dualCame
 
 ### `source`
 
-Driver tells the two forms apart by `://`: with it, `source` is a URL; without it, a package name.
+Driver tells the two forms apart by the URI scheme: if `source` has one (`scheme:...`), it's a URL;
+otherwise, a package name.
 
 - **A URL (recommended):** a custom scheme or an app link. It works immediately, with no registration.
   The sample's own is `RecordingDeepLink.SOURCE_IDENTIFIER`, `driver-recording-sample://recording`,
@@ -164,7 +166,7 @@ every check reports `not_installed`:
 | `unauthenticated` | The user isn't signed in to Driver. |
 | `missing_permissions` | Driver lacks camera, location or (if enabled) microphone access. |
 | `unavailable` | Driver couldn't answer within 5s. |
-| `not_installed` | Reported by `DriverStatus.kt`, not by Driver: no Driver version with the status check is installed. |
+| `not_installed` | Reported by `DriverStatus.kt`, not by Driver: Driver isn't installed, or is older than 7.1.3. |
 
 ### With adb
 
@@ -194,7 +196,7 @@ Result: Bundle[{status=healthy}]
   status check.
 - From [`AndroidManifest.xml`](app/src/main/AndroidManifest.xml):
   - the `VIEW` intent filter, with your own scheme, so Driver can hand control back;
-  - the `<provider>` entries in `<queries>`, for the status check.
+  - the `<provider>` entry in `<queries>`, for the status check.
 
   The launcher `<intent>` in `<queries>` only serves the sample's **Return to** menu, which lists other
   apps. You don't need it unless you do the same.

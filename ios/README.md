@@ -13,7 +13,7 @@ The links are the same on both platforms; only what's noted in each README diffe
 ## Running the sample
 
 Open `RecordingDeepLinkSample.xcodeproj` in Xcode, pick your team under **Signing & Capabilities**, and
-run it on a device with Driver installed. It has no dependencies and needs iOS 17.
+run it on a device with Driver 7.1.3 or later installed. It has no dependencies and needs iOS 17.
 
 The screen has:
 
@@ -81,8 +81,8 @@ performs the action and stays open, and doesn't show its retry prompt either.
 - **Omitted:** Driver performs the action without reopening your app.
 
 The sample's own `source` is `driver-recording-sample://recording` (`RecordingDeepLink.sourceIdentifier`,
-registered by `CFBundleURLTypes` in [`Info.plist`](Info.plist)). Driver lists that scheme from the
-release that includes it; older Driver builds record but don't come back.
+registered by `CFBundleURLTypes` in [`Info.plist`](Info.plist)). Driver lists that scheme from 7.1.3;
+older versions record but don't come back.
 
 While **Guided Access** is on, Driver can't open any `source`, so it always stays open.
 
